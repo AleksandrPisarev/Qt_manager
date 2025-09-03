@@ -32,7 +32,6 @@ public:
     QLineEdit *categoryNameEdit;
     QComboBox *categoryComboBox;
     QPushButton *enterproduct;
-    QLineEdit *productNameEdit;
     QTableWidget *tableWidget;
     QLabel *label;
     QLabel *label_2;
@@ -42,7 +41,6 @@ public:
     QLabel *label_4;
     QLineEdit *productUnitEdit;
     QLineEdit *infoEdit;
-    QLineEdit *productNameSell;
     QLabel *label_5;
     QLabel *label_6;
     QLineEdit *productMuchSell;
@@ -50,6 +48,8 @@ public:
     QLabel *label_7;
     QLineEdit *boxOffice;
     QLabel *label_8;
+    QComboBox *productSellComboBox;
+    QLineEdit *productNameEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -74,10 +74,6 @@ public:
         enterproduct = new QPushButton(centralwidget);
         enterproduct->setObjectName("enterproduct");
         enterproduct->setGeometry(QRect(370, 150, 121, 31));
-        productNameEdit = new QLineEdit(centralwidget);
-        productNameEdit->setObjectName("productNameEdit");
-        productNameEdit->setGeometry(QRect(10, 120, 341, 21));
-        productNameEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         tableWidget = new QTableWidget(centralwidget);
         tableWidget->setObjectName("tableWidget");
         tableWidget->setGeometry(QRect(820, 50, 471, 601));
@@ -119,10 +115,6 @@ public:
         infoEdit->setGeometry(QRect(890, 20, 341, 22));
         infoEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "color: rgb(255, 0, 0);"));
-        productNameSell = new QLineEdit(centralwidget);
-        productNameSell->setObjectName("productNameSell");
-        productNameSell->setGeometry(QRect(10, 260, 361, 22));
-        productNameSell->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(120, 240, 131, 16));
@@ -156,6 +148,13 @@ public:
         label_8->setGeometry(QRect(650, 30, 121, 20));
         label_8->setStyleSheet(QString::fromUtf8("background-color: rgb(116, 111, 89);\n"
 "color: rgb(0, 0, 255);"));
+        productSellComboBox = new QComboBox(centralwidget);
+        productSellComboBox->setObjectName("productSellComboBox");
+        productSellComboBox->setGeometry(QRect(10, 260, 341, 22));
+        productNameEdit = new QLineEdit(centralwidget);
+        productNameEdit->setObjectName("productNameEdit");
+        productNameEdit->setGeometry(QRect(12, 120, 331, 22));
+        productNameEdit->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");

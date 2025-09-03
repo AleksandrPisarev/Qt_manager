@@ -66,19 +66,6 @@
      <string>добавить товар</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="productNameEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>120</y>
-      <width>341</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
@@ -213,19 +200,6 @@ color: rgb(0, 0, 255);</string>
 color: rgb(255, 0, 0);</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="productNameSell">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>260</y>
-      <width>361</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
@@ -335,6 +309,29 @@ color: rgb(0, 0, 255);</string>
     </property>
     <property name="text">
      <string>касса: сумма продаж</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="productSellComboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>341</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="productNameEdit">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>120</y>
+      <width>331</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>

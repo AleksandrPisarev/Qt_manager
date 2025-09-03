@@ -30,11 +30,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::clearData(){
     ui->categoryComboBox->clear();
+    ui->productSellComboBox->clear();
     ui->tableWidget->clear();
 }
 
 void MainWindow::appendData(){
     ui->categoryComboBox->insertItems(1, categories);
+    ui->productSellComboBox->insertItems(1,productSell);
     ui->tableWidget->setHorizontalHeaderItem(0,new QTableWidgetItem("категория"));
     ui->tableWidget->setHorizontalHeaderItem(1,new QTableWidgetItem("наименование"));
     ui->tableWidget->setHorizontalHeaderItem(2,new QTableWidgetItem("цена"));
@@ -78,6 +80,7 @@ void MainWindow::on_enterproduct_clicked()
     if (category.size() != 0 && productName.size() != 0 && producrPrice.size() != 0 && productMuch.size() != 0 && productUnit.size() != 0){
         Product* product = new Product(productName, category, producrPrice, productMuch, productUnit);
         products.push_back(product);
+        productSell.push_back(productName);
         ui->infoEdit->clear();
         ui->productNameEdit->clear();
         ui->productPriceEdit->clear();
@@ -91,7 +94,7 @@ void MainWindow::on_enterproduct_clicked()
 void MainWindow::on_sellproduct_clicked()
 {
     int inStock = -1; //переменная наличия товара на складе
-    QString productNameSell = ui->productNameSell->text();
+    QString productNameSell = ui->productSellComboBox->currentText();
     QString productMuchSell = ui->productMuchSell->text();
     if (productNameSell.size() != 0 && productMuchSell.size() != 0){
         for (int i=0; i<products.size(); ++i){
@@ -101,25 +104,25 @@ void MainWindow::on_sellproduct_clicked()
             } 
         }
         if (inStock >=0){
-            int intproductMuchSell = productMuchSell.toInt();
-            int intproductMuch = products[inStock]->getMuch().toInt();
-            if (intproductMuch >= intproductMuchSell){
-                int intproducktMuchResult = intproductMuch - intproductMuchSell;
-                if (intproducktMuchResult == 0){
+            double dproductMuchSell = productMuchSell.toDouble();
+            double dproductMuch = products[inStock]->getMuch().toDouble();
+            if (dproductMuch >= dproductMuchSell){
+                double dproductPrice = products[inStock]->getPrice().toDouble();
+                double dproducktMuchResult = dproductMuch - dproductMuchSell;
+                if (dproducktMuchResult == 0){
                     products.removeAt(inStock);
+                    productSell.removeAt(inStock);
                 }
                 else {
-                    QString sproducktMuchResult = QString::number(intproducktMuchResult);
+                    QString sproducktMuchResult = QString::number(dproducktMuchResult);
                     products[inStock]->setMuch(sproducktMuchResult);
                 }
-                double dproductPrice = products[inStock]->getPrice().toDouble();
-                double dSumSell = intproductMuchSell * dproductPrice;
+                double dSumSell = dproductMuchSell * dproductPrice;
                 double dBoxOffice = ui->boxOffice->text().toDouble();
                 double dTotalSum = dSumSell + dBoxOffice;
                 QString strTotalSum = QString::number(dTotalSum);
                 ui->boxOffice->setText(strTotalSum);
                 ui->infoEdit->clear();
-                ui->productNameSell->clear();
                 ui->productMuchSell->clear();
                 upDate();
             }

@@ -32,6 +32,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QStringList categories;
+    QStringList productSell;
     QList<Product*> products;
 };
 #endif // MAINWINDOW_H
